@@ -29,10 +29,12 @@ class Effect extends Card{
         if( target instanceof Unit){
             if(this.stat == "res"){
                 target.res += this.magnitude;
+                return(target.res);
                 
             }
             else{
                 target.power += this.magnitude;
+                return(target.power);
             }
         } else {
             throw new Error( "Target must be a unit!" );
@@ -42,7 +44,7 @@ class Effect extends Card{
 const RedBeltNinja = new Unit("Red Belt Ninja",3,3,4);
 const BlackBeltNinja = new Unit("Black Belt Ninja",4,5,4);
 const HardAlgorithm = new Effect("Hard Algorithm",2,"increase target's resilience by 3","resilience",+3);
-const UnhandledPromiseRejection = new Effect("Unhandled Promise Rejection",1,"reduce target's resilience by 2","resilience",-2);
+const UnhandledPromiseRejection = new Effect("Unhandled Promise Rejection",1,"reduce target's resilience by 2","resilience",(-2));
 const PairProgramming = new Effect("Pair Programming",3,"increase target's power by 2","power",+2);
 
 console.log(HardAlgorithm.play(RedBeltNinja));
