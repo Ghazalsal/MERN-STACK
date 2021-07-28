@@ -1,0 +1,15 @@
+use my_first_db
+db.createCollection('students')
+db.students.insert({name:"asd",home_state:"WB",lucky_number:10,birthday:{month:7,day:9,year:1995}})
+db.students.insert({name:"asd",home_state:"WB",lucky_number:10,birthday:{month:7,day:9,year:1995}})
+db.students.insert({name:"asd",home_state:"WB",lucky_number:10,birthday:{month:7,day:9,year:1995}})
+db.students.insert({name:"asd",home_state:"WB",lucky_number:10,birthday:{month:7,day:9,year:1995}})
+db.students.insert({name:"asd",home_state:"WB",lucky_number:10,birthday:{month:7,day:9,year:1995}})
+db.students.find()
+db.students.find().pretty()
+db.students.find({home_state:"WB"}).pretty()
+db.students.find({lucky_number:{$gt:3}}).pretty()
+db.students.find({lucky_number:{$lte:10}}).pretty()
+db.students.find({lucky_number:{$lte:9,{$gte:1}}).pretty()
+db.students.update({},{$set:{'intrests':['coding','branch','mogodb']}}
+db.students.updateMany({},{$set:{'interests':['coding','branch','mongodb']}})
