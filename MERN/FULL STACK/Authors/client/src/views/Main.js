@@ -14,7 +14,7 @@ const Main =(props) => {
                 setAuthor(res.data);
                 setLoaded(true);
             });
-    },[author])
+    },[])
     const createAuthor=(name) => {
         console.log(name)
         axios.post('http://localhost:8000/api/author', 
@@ -38,6 +38,7 @@ const Main =(props) => {
 
     const removeFromDom = authorId => {
         setAuthor(author.filter(author => author._id != authorId));
+        console.log("I am in the remove")
     }
     // const create = author => {
     //     axios.post('http://localhost:8000/api/author', author)
@@ -49,7 +50,7 @@ const Main =(props) => {
         <div>
             <AuthorForm functionAuthor={createAuthor} initialName="" errors={errors}/>
             <hr/>
-            {loaded && <AuthorList author={author} removeFromDom={removeFromDom}/>}
+            {loaded && <AuthorList author={author} setAuthor={setAuthor} removeFromDom={removeFromDom}/>}
         </div>
     )
 }

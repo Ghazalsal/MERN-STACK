@@ -4,11 +4,8 @@ import { navigate } from '@reach/router';
 import { Link } from '@reach/router';
 import DeleteButton from './DeleteButton';
 const AuthorList =(props) => {
-    const [author, setAuthor] = useState([]);
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/author')
-            .then(res => setAuthor(res.data));
-    }, [])
+    const {author, setAuthor} = props;
+    
     const removeFromDom = authorId => {
         setAuthor(author.filter(author => author._id !== authorId))
         
